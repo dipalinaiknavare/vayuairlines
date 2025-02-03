@@ -182,7 +182,7 @@ export default function Home() {
               <Button
                 variant="default"
                 className="bg-red-600 hover:bg-red-700 w-full sm:w-auto"
-                onClick={() => window.open("https://www.youtube.com/@VayuAirlines", "_blank")}
+                onClick={() => window.open("https://www.youtube.com/@VayuAirline", "_blank")}
               >
                 <Youtube className="mr-2" /> Subscribe Now
               </Button>

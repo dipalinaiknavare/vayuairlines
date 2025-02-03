@@ -27,7 +27,7 @@ export default function BookFlight() {
             <Button
               variant="default"
               className="bg-red-600 hover:bg-red-700 w-full sm:w-auto text-sm sm:text-base px-4 py-2 sm:px-6 sm:py-3"
-              onClick={() => window.open("https://www.youtube.com/@VayuAirlines", "_blank")}
+              onClick={() => window.open("https://www.youtube.com/@VayuAirline", "_blank")}
             >
               <Youtube className="mr-2 w-4 h-4 sm:w-5 sm:h-5" /> Subscribe Now
             </Button>
