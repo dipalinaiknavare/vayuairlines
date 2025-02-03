@@ -246,7 +246,7 @@ export default function Home() {
             <Button
               variant="outline"
               size="lg"
-              onClick={() => window.open("https://www.youtube.com/@VayuAirlines", "_blank")}
+              onClick={() => window.open("https://www.youtube.com/@VayuAirline", "_blank")}
               className="bg-red-600 text-white hover:bg-red-700 border-none"
             >
               <Youtube className="mr-2" />
