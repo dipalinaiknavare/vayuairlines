@@ -31,7 +31,7 @@ export default function SecretFleet() {
           </div>
           <div className="rounded-lg overflow-hidden shadow-lg">
             <img
-              src="https://drive.google.com/file/d/1kTWaKR8tC8dKqRheyjCasFSOJZ9hqDo4/view?usp=drive_link"
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/23974039914_2f5e8f300f_b.jpg-yLKAQQFgNujM7vVYvce2DcUpd7q46X.jpeg"
               alt="Boeing 747"
               className="w-full h-64 object-cover"
             />
