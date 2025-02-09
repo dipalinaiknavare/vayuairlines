@@ -5,13 +5,23 @@ import { useState } from "react"
 import { Plane, Youtube, Search, Filter, ArrowRight, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { SearchDialog } from "@/components/search-dialog"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { SettingsDialog } from "@/components/settings-dialog"
 
 export default function Home() {
-  const [sortType, setSortType] = useState<string | null>(null)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [searchOpen, setSearchOpen] = useState(false)
+  const [sortType, setSortType] = useState<string | null>(null)
 
   const passengerFleet = [
+    {
+      name: "Airbus A318",
+      status: "Active",
+      details: "Latest addition to our short-haul fleet",
+      manufacturer: "Airbus",
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Gi03M5g4stqam9k9VQmq0pY9mWifkU.png",
+    },
     {
       name: "Boeing 737-500",
       status: "Active",
@@ -46,10 +56,10 @@ export default function Home() {
     if (sortType === "manufacturer") {
       return a.manufacturer.localeCompare(b.manufacturer)
     } else if (sortType === "size-asc") {
-      const sizeOrder = ["Cessna 152", "ATR-42", "Boeing 737-500", "Boeing 757-200"]
+      const sizeOrder = ["Cessna 152", "ATR-42", "Boeing 737-500", "Boeing 757-200", "Airbus A318"]
       return sizeOrder.indexOf(a.name) - sizeOrder.indexOf(b.name)
     } else if (sortType === "size-desc") {
-      const sizeOrder = ["Boeing 757-200", "Boeing 737-500", "ATR-42", "Cessna 152"]
+      const sizeOrder = ["Boeing 757-200", "Boeing 737-500", "Airbus A318", "ATR-42", "Cessna 152"]
       return sizeOrder.indexOf(a.name) - sizeOrder.indexOf(b.name)
     }
     return 0
@@ -120,12 +130,23 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-100 to-white">
-      <header className="bg-gradient-to-r from-green-600 to-blue-600 text-white p-4">
+      <header className="bg-gradient-to-r from-blue-900 to-red-900 text-white p-4">
         <nav className="container mx-auto flex justify-between items-center">
-          <Link href="/" className="text-2xl font-bold flex items-center">
-            <Plane className="mr-2" /> Vayu Airlines
-          </Link>
+          <div className="flex items-center gap-4">
+            <Link href="/" className="text-2xl font-bold flex items-center">
+              <Plane className="mr-2" /> Vayu Airlines
+            </Link>
+            <Link
+              href="https://www.roblox.com/users/2558041496/profile"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm hover:text-sky-200 hidden md:block"
+            >
+              Friend me on Roblox!
+            </Link>
+          </div>
           <div className="hidden md:flex items-center space-x-6">
+            <SettingsDialog />
             <Link href="#news" className="hover:text-sky-200">
               News
             </Link>
@@ -138,7 +159,7 @@ export default function Home() {
             <Link href="#about" className="hover:text-sky-200">
               About
             </Link>
-            <Button variant="secondary" className="flex items-center">
+            <Button variant="secondary" className="flex items-center" onClick={() => setSearchOpen(true)}>
               <Search className="w-4 h-4 mr-2" />
               Search
             </Button>
@@ -151,8 +172,16 @@ export default function Home() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-gradient-to-r from-green-600 to-blue-600 text-white p-4">
+        <div className="md:hidden bg-gradient-to-r from-blue-900 to-red-900 text-white p-4">
           <nav className="flex flex-col space-y-4">
+            <Link
+              href="https://www.roblox.com/users/2558041496/profile"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-sky-200"
+            >
+              Friend me on Roblox!
+            </Link>
             <Link href="#news" className="hover:text-sky-200" onClick={() => setMobileMenuOpen(false)}>
               News
             </Link>
@@ -165,7 +194,14 @@ export default function Home() {
             <Link href="#about" className="hover:text-sky-200" onClick={() => setMobileMenuOpen(false)}>
               About
             </Link>
-            <Button variant="secondary" className="flex items-center w-full justify-center">
+            <Button
+              variant="secondary"
+              className="flex items-center w-full justify-center"
+              onClick={() => {
+                setSearchOpen(true)
+                setMobileMenuOpen(false)
+              }}
+            >
               <Search className="w-4 h-4 mr-2" />
               Search
             </Button>
@@ -173,33 +209,39 @@ export default function Home() {
         </div>
       )}
 
+      <SearchDialog isOpen={searchOpen} setIsOpen={setSearchOpen} />
+
       <main>
-        <section className="relative h-[500px] flex items-center justify-center bg-gradient-to-br from-blue-600 via-blue-500 to-green-500">
+        <section className="relative h-[500px] flex items-center justify-center">
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage:
+                'url("https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-d6NWqNT8fQiJ5zRNIlNJ4PLb9QqZzT.png")',
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 via-blue-500/30 to-red-900/30" />
           <div className="relative z-10 text-center text-white px-4">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Welcome to Vayu Airlines!</h1>
-            <p className="text-lg md:text-xl mb-8">Experience aviation across virtual worlds!</p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">Welcome to Vayu Airlines</h1>
+            <p className="text-xl mb-8">Experience aviation across virtual worlds</p>
+            <div className="flex flex-col sm:flex-row justify-center gap-4 mt-8">
               <Button
                 variant="default"
-                className="bg-red-600 hover:bg-red-700 w-full sm:w-auto"
-                onClick={() => window.open("https://www.youtube.com/@VayuAirline", "_blank")}
+                className="bg-red-600 hover:bg-red-700 text-sm px-4 py-2 w-[200px] mx-auto"
+                onClick={() => window.open("https://www.youtube.com/@VayuAirlines", "_blank")}
               >
-                <Youtube className="mr-2" /> Subscribe Now
+                <Youtube className="mr-2 w-4 h-4" /> Subscribe Now
               </Button>
-              <Link href="/book-flight" className="w-full sm:w-auto">
-                <Button variant="default" className="bg-yellow-500 hover:bg-yellow-600 text-black w-full">
+              <Link href="/book-flight" className="mx-auto">
+                <Button
+                  variant="default"
+                  className="bg-yellow-500 hover:bg-yellow-600 text-black text-sm px-4 py-2 w-[200px]"
+                >
                   Book a flight!
                 </Button>
               </Link>
             </div>
           </div>
-          <div
-            className="absolute inset-0 bg-black/10 z-0"
-            style={{
-              backgroundImage:
-                'url("data:image/svg+xml,%3Csvg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="white" fill-opacity="0.05" fill-rule="evenodd"%3E%3Ccircle cx="3" cy="3" r="3"/%3E%3Ccircle cx="13" cy="13" r="3"/%3E%3C/g%3E%3C/svg%3E")',
-            }}
-          ></div>
         </section>
 
         <section id="news" className="py-16 container mx-auto px-4">
@@ -246,7 +288,7 @@ export default function Home() {
             <Button
               variant="outline"
               size="lg"
-              onClick={() => window.open("https://www.youtube.com/@VayuAirline", "_blank")}
+              onClick={() => window.open("https://www.youtube.com/@VayuAirlines", "_blank")}
               className="bg-red-600 text-white hover:bg-red-700 border-none"
             >
               <Youtube className="mr-2" />
@@ -356,7 +398,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="bg-gradient-to-r from-green-600 to-blue-600 text-white py-8">
+      <footer className="bg-gradient-to-r from-blue-900 to-red-900 text-white py-8">
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
           <div>
             <h3 className="font-bold text-lg mb-4">Vayu Airlines</h3>

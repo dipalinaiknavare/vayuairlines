@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowLeft, Plane } from "lucide-react"
+import { ArrowLeft } from "lucide-react"
 
 export default function SelectAircraft() {
   const passengerPlanes = [
@@ -37,7 +37,9 @@ export default function SelectAircraft() {
           </Link>
           <h1 className="text-xl font-bold">Select Aircraft</h1>
           <Link href="/secret-fleet" className="text-white/10 hover:text-white/20">
-            <Plane className="w-6 h-6 transform rotate-45" />
+            <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M3 12h18M5 8h14M7 4h10M12 4v16M7 20h10M5 16h14M3 12l3-3M3 12l3 3M21 12l-3-3M21 12l-3 3" />
+            </svg>
           </Link>
         </nav>
       </header>
@@ -56,7 +58,7 @@ export default function SelectAircraft() {
               </CardHeader>
               <CardContent className="text-center">
                 <Link href="/book-flight">
-                  <Button>Select Aircraft</Button>
+                  <Button className="bg-blue-600 hover:bg-blue-700">Select Aircraft</Button>
                 </Link>
               </CardContent>
             </Card>
