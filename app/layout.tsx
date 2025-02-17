@@ -1,13 +1,14 @@
 import "./globals.css"
-import { Inter } from "next/font/google"
+import { Space_Grotesk } from "next/font/google"
 import type React from "react"
 
-const inter = Inter({ subsets: ["latin"] })
+const spaceGrotesk = Space_Grotesk({ subsets: ["latin"] })
 
 export const metadata = {
   title: "Vayu Airlines - A Plane Crazy Fictional Airline",
   description:
     "Explore the world of Vayu Airlines, a fictional airline inspired by aviation enthusiasm and @KiwiIncRoblox. Watch our YouTube videos and learn about our virtual fleet!",
+    generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -17,8 +18,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} antialiased`}>{children}</body>
+      <body className={`${spaceGrotesk.className} antialiased`}>{children}</body>
     </html>
   )
 }
 
+
+
+import './globals.css'

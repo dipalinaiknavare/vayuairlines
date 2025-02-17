@@ -49,7 +49,7 @@ export default function BookFlight() {
               <CardTitle className="text-2xl font-bold text-center">Book a Flight</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-lg mb-6">
+              <p className="text-lg mb-6 text-black">
                 Here's how it works: Bring tickets for up to 10 players (fictional tickets), comment on our YouTube
                 videos, and add my Roblox profile:{" "}
                 <Link
@@ -62,7 +62,7 @@ export default function BookFlight() {
                 </Link>
                 . Then, just join me in my private server, and voila!
               </p>
-              <div className="space-y-4 mb-8">
+              <div className="space-y-4 mb-8 text-black">
                 <p>1. Prepare your fictional tickets (up to 10 players).</p>
                 <p>2. Comment on our YouTube videos.</p>
                 <p>3. Add the Roblox profile linked above.</p>
@@ -87,7 +87,7 @@ export default function BookFlight() {
                     className="w-full h-48 object-cover rounded-t-lg"
                   />
                   <CardHeader>
-                    <CardTitle className="text-center">{plot.name}</CardTitle>
+                    <CardTitle className="text-center text-black">{plot.name}</CardTitle>
                   </CardHeader>
                 </Card>
               ))}
