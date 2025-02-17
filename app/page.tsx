@@ -392,7 +392,7 @@ export default function Home() {
             <h2 className="text-3xl font-bold mb-8 text-center text-blue-600">About Us</h2>
             <p className="text-lg text-center text-gray-700 mb-8">
               Vayu Airlines is a virtual airline experience across multiple gaming platforms, inspired by real aviation
-              and @KiwiIncRoblox.
+              and @KiwiIncRoblox. Our mission is provide a realistic and immersive aviation experience for players.   
             </p>
           </div>
         </section>
