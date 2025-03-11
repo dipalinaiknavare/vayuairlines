@@ -17,8 +17,8 @@ const cities = [
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/paris.jpg-Xm5ve4sn10FoRsU4Ac9cmN9zEy03N7.jpeg",
   },
   {
-    name: "Mumbai",
-    code: "BOM",
+    name: "New Delhi",
+    code: "DEL",
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/mumbai.jpg-iL1v9aWhyn3lG1NofVGeUqRnPsKkko.jpeg",
   },
   {
