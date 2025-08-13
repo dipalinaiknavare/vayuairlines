@@ -3,54 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --primary: 220 100% 50%;
-  --primary-foreground: 0 0% 100%;
-  --secondary: 0 100% 50%;
-  --secondary-foreground: 0 0% 100%;
-}
-
-.city-circle {
-  @apply w-40 h-40 rounded-full overflow-hidden border-4 border-blue-500 relative transition-transform hover:scale-105;
-}
-
-.city-circle img {
-  @apply w-full h-full object-cover;
-}
-
-.city-name {
-  @apply mt-2 text-center font-bold text-lg;
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
 }
 
 body {
-  @apply bg-gradient-to-b from-blue-900 to-red-900 text-white;
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
 }
-
-.valentine-cities {
-  @apply flex flex-wrap justify-center gap-8 mt-8;
-}
-
-.welcome-text {
-  animation: float 3s ease-in-out infinite;
-  transform: translateY(0);
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-}
-
-.sticky-header {
-  @apply fixed top-0 left-0 right-0 z-50 transition-all duration-300;
-  backdrop-filter: blur(10px);
-}
-
-.sticky-header.scrolled {
-  @apply shadow-lg;
-  background: rgba(30, 58, 138, 0.9);
-}
-
