@@ -28,11 +28,16 @@ export default function CampaignSection() {
 
   if (unlockedPlane === "second") {
     return (
-      <section className="py-16 bg-gradient-to-r from-green-100 to-blue-100">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold text-green-600 mb-4">Congrats.. unlocked the second plane!</h2>
-          <p className="text-xl text-gray-700">This plane comes out on August, 15, 2025.</p>
-          <Button onClick={() => setUnlockedPlane(null)} className="mt-6" variant="outline">
+      <section className="py-12 md:py-16 bg-gradient-to-r from-green-100 to-blue-100 relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-green-200/30 pointer-events-none"></div>
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <h2 className="text-2xl md:text-4xl font-bold text-green-600 mb-4">Congrats.. unlocked the second plane!</h2>
+          <p className="text-lg md:text-xl text-gray-700">This plane comes out on August, 15, 2025.</p>
+          <Button
+            onClick={() => setUnlockedPlane(null)}
+            className="mt-6 text-sm md:text-base px-4 md:px-6"
+            variant="outline"
+          >
             Back to Campaign
           </Button>
         </div>
@@ -42,11 +47,18 @@ export default function CampaignSection() {
 
   if (unlockedPlane === "third") {
     return (
-      <section className="py-16 bg-gradient-to-r from-blue-100 to-purple-100">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold text-blue-600 mb-4">Congrats.. unlocked the third and last plane!</h2>
-          <p className="text-xl text-gray-700">This plane comes out on August 18 2025.</p>
-          <Button onClick={() => setUnlockedPlane(null)} className="mt-6" variant="outline">
+      <section className="py-12 md:py-16 bg-gradient-to-r from-blue-100 to-purple-100 relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-blue-200/30 pointer-events-none"></div>
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <h2 className="text-2xl md:text-4xl font-bold text-blue-600 mb-4">
+            Congrats.. unlocked the third and last plane!
+          </h2>
+          <p className="text-lg md:text-xl text-gray-700">This plane comes out on August 18 2025.</p>
+          <Button
+            onClick={() => setUnlockedPlane(null)}
+            className="mt-6 text-sm md:text-base px-4 md:px-6"
+            variant="outline"
+          >
             Back to Campaign
           </Button>
         </div>
@@ -55,7 +67,7 @@ export default function CampaignSection() {
   }
 
   return (
-    <section className="relative h-[400px] overflow-hidden">
+    <section className="relative h-[300px] md:h-[400px] overflow-hidden">
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -64,34 +76,35 @@ export default function CampaignSection() {
         }}
       >
         <div className="absolute inset-0 bg-black/30"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-blue-600/20"></div>
       </div>
 
       {/* Content Overlay */}
-      <div className="relative z-10 h-full flex flex-col justify-between p-8">
+      <div className="relative z-10 h-full flex flex-col justify-between p-4 md:p-8">
         {/* Top Banner */}
         <div className="flex justify-center">
-          <div className="bg-white/20 backdrop-blur-sm rounded-full px-8 py-4 border border-white/30">
-            <p className="text-white text-lg font-medium text-center">
+          <div className="bg-white/20 backdrop-blur-sm rounded-full px-4 md:px-8 py-3 md:py-4 border border-white/30 max-w-full">
+            <p className="text-white text-sm md:text-lg font-medium text-center">
               Nature and its Kind, 3 planes, one campaign. Find out which comes out next with codes.
             </p>
           </div>
         </div>
 
         {/* Bottom Right Search Bar */}
-        <div className="flex justify-end">
-          <div className="bg-white/20 backdrop-blur-sm rounded-full p-2 border border-white/30 flex items-center gap-2 min-w-[300px]">
+        <div className="flex justify-center md:justify-end">
+          <div className="bg-white/20 backdrop-blur-sm rounded-full p-2 border border-white/30 flex items-center gap-2 w-full max-w-[300px] md:min-w-[300px]">
             <Input
               type="text"
               placeholder="Enter code..."
               value={searchCode}
               onChange={(e) => setSearchCode(e.target.value)}
               onKeyPress={handleKeyPress}
-              className="bg-transparent border-none text-white placeholder:text-white/70 focus:ring-0 focus:outline-none"
+              className="bg-transparent border-none text-white placeholder:text-white/70 focus:ring-0 focus:outline-none text-sm md:text-base"
             />
             <Button
               onClick={handleSearch}
               size="sm"
-              className="bg-white/30 hover:bg-white/40 text-white border-none rounded-full p-2"
+              className="bg-white/30 hover:bg-white/40 text-white border-none rounded-full p-2 flex-shrink-0"
             >
               <Search className="w-4 h-4" />
             </Button>
